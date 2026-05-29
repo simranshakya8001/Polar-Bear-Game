@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>❄️ Arctic Dash — Polar Bear Runner</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <!-- GSAP for Professional Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Cinematic Overlay Effects -->
+    <div class="vignette"></div>
+    <div class="grain"></div>
+    <div class="aurora"></div>
+
+    <!-- Ambient floating snowflakes in the page background -->
+    <div class="bg-snow" id="bgSnow"></div>
+
+    <div id="gameScreen" class="screen active">
+      <!-- HUD Bar (Now as overlay) -->
+      <div class="game-hud">
+        <div class="hud-block">
+          <span class="hud-label">Score</span>
+          <span class="hud-value" id="scoreDisplay">0</span>
+        </div>
+        <div class="hud-center">
+          <div class="game-logo-small">
+            <span class="logo-icon">🐻‍❄️</span>
+            <span class="game-title-small">Arctic Dash</span>
+          </div>
+        </div>
+        <div class="hud-block right">
+          <div class="hud-row">
+            <span class="hud-label">Best</span>
+            <button
+              class="fullscreen-btn"
+              onclick="toggleFullScreen()"
+              title="Toggle Fullscreen"
+            >
+              ⛶
+            </button>
+          </div>
+          <span class="hud-value" id="highScoreDisplay">0</span>
+        </div>
+      </div>
+
+      <!-- Canvas Wrapper -->
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Game Over Overlay -->
+        <div id="gameOverOverlay" class="game-over-overlay hidden">
+          <div class="game-over-card game-card">
+            <div class="go-icon">❄️</div>
+            <h2 class="go-title">Arctic Storm</h2>
+            <p class="go-sub">The cold caught up to you!</p>
+            <div class="go-stats">
+              <div class="go-stat">
+                <span class="go-stat-label">Score</span>
+                <span class="go-stat-value" id="finalScore">0</span>
+              </div>
+              <div class="go-divider"></div>
+              <div class="go-stat">
+                <span class="go-stat-label">Best</span>
+                <span class="go-stat-value" id="finalBest">0</span>
+              </div>
+            </div>
+            <button class="btn-primary" id="restartBtn" onclick="restartGame()">
+              <span>Run Again</span> 🐾
+            </button>
+          </div>
+        </div>
+
+        <!-- Start Prompt / Menu -->
+        <div id="startPrompt" class="menu-overlay">
+          <div class="menu-card game-card">
+            <div class="menu-bear jump-anim">🐻‍❄️</div>
+            <h1 class="menu-title">Arctic Dash</h1>
+            <p class="menu-sub">Jump or Duck to Survive!</p>
+            <div class="pulse-play">START ADVENTURE</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Big tap area for mobile -->
+      <button class="mobile-jump" id="mobileJump" aria-label="Jump">
+        JUMP
+      </button>
+    </div>
+
+    <!-- App Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
